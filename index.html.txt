@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stamina Tea - Premium Ceylon Black Tea</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 120px 0 80px;
+            margin: 0;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Hero */
+        #home {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #27ae60;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* About */
+        #about {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1.8rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            text-align: center;
+            padding: 50px 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 3px solid #27ae60;
+        }
+
+        .about-image h3 {
+            font-size: 1.8rem;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        .about-image p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        /* Products */
+        #products {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+
+        #products h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 4rem;
+            font-weight: bold;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border: 2px solid #27ae60;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            border: 3px solid #27ae60;
+            border-radius: 10px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #27ae60;
+            background: #f8f9fa;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .product-card p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .price-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
+            text-align: left;
+        }
+
+        .price-info h4 {
+            color: #27ae60;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .price-info p {
+            margin: 0;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        /* Contact */
+        #contact {
+            background: white;
+            padding: 100px 0;
+        }
+
+        #contact h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 4rem;
+            font-weight: bold;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: #27ae60;
+            padding: 50px 40px;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .contact-item p {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .map-container {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #27ae60;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #27ae60;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .map-container h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .map-container p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Pricing Table */
+        .pricing-section {
+            background: white;
+            padding: 80px 0;
+            margin: 50px 0;
+        }
+
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            font-weight: bold;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: #f8f9fa;
+            border: 3px solid #27ae60;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card h3 {
+            color: #27ae60;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #27ae60;
+        }
+
+        .price-table th {
+            background: #27ae60;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .price-table td {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .price-table .weight {
+            font-weight: bold;
+        }
+
+        .price-table .price {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Stamina Tea</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Ceylon Tea</h1>
+                <p>Invigorate your senses with Stamina Tea, a premium blend of pure Ceylon tea leaves carefully crafted to boost your energy and vitality. With its rich flavor and aroma, Stamina Tea is the perfect way to start your day or take a refreshing break. Experience the authentic taste of Sri Lanka in every cup.</p>
+                <a href="#contact" class="cta-button">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Stamina Tea</h2>
+                    <p>Welcome to Stamina Tea, where tradition meets excellence in every cup. We are passionate purveyors of premium Ceylon black tea, sourced directly from the lush high-grown estates of Sri Lanka.</p>
+                    <p>Our commitment to quality begins with the careful selection of the finest tea leaves, processed using time-honored methods that preserve the authentic flavor and aroma that Ceylon tea is renowned for worldwide.</p>
+                    <p>Whether you're starting your morning or taking an afternoon break, Stamina Tea delivers the perfect balance of strength, flavor, and energy to invigorate your senses and fuel your day.</p>
+                </div>
+                <div class="about-image">
+                    <h3>Premium Quality</h3>
+                    <p>From Sri Lankan High-Grown Estates</p>
+                    <p>100% Ceylon Tea</p>
+                    <p>Traditional Processing</p>
+                    <p>Export Quality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2>Our Tea Varieties</h2>
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2>Our Tea Varieties</h2>
+            
+            <!-- Pricing Section -->
+            <div class="pricing-section">
+                <h2>Complete Price List</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>1st Quality BOPF</h3>
+                        <p>Premium Grade Ceylon Black Tea</p>
+                        <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Weight</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="weight">1 kg</td>
+                                    <td class="price">Rs. 2,400</td>
+                                </tr>
+                                <tr>
+                                    <td class="weight">500 g</td>
+                                    <td class="price">Rs. 1,200</td>
+                                </tr>
+                                <tr>
+                                    <td class="weight">200 g</td>
+                                    <td class="price">Rs. 480</td>
+                                </tr>
+                                <tr>
+                                    <td class="weight">100 g</td>
+                                    <td class="price">Rs. 240</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>2nd Quality BOPF</h3>
+                        <p>High Quality Ceylon Black Tea</p>
+                        <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Weight</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="weight">1 kg</td>
+                                    <td class="price">Rs. 1,900</td>
+                                </tr>
+                                <tr>
+                                    <td class="weight">500 g</td>
+                                    <td class="price">Rs. 950</td>
+                                </tr>
+                                <tr>
+                                    <td class="weight">200 g</td>
+                                    <td class="price">Rs. 330</td>
+                                </tr>
+                                <tr>
+                                    <td class="weight">100 g</td>
+                                    <td class="price">Rs. 190</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        BOPF Grade<br>Fine Particles
+                    </div>
+                    <h3>Broken Orange Pekoe Fanning (BOPF)</h3>
+                    <p>Premium quality tea with smaller particles than BOP, popular in higher elevations. Offers stronger taste while retaining all other characteristics of fine Ceylon tea.</p>
+                    <div class="price-info">
+                        <h4>Available in Two Qualities:</h4>
+                        <p><strong>1st Quality:</strong> Rs. 240 (100g) to Rs. 2,400 (1kg)<br>
+                        <strong>2nd Quality:</strong> Rs. 190 (100g) to Rs. 1,900 (1kg)<br>
+                        <strong>Special:</strong> Bulk orders 3000+ tea bags: Rs. 1,000 per 100 bags</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        FBOPF Grade<br>Flowery with Tips
+                    </div>
+                    <h3>Flowery Broken Orange Pekoe Fanning (FBOPF)</h3>
+                    <p>A whole leaf tea with an abundance of long tips, similar to FBOP1 but with firmer and blacker leaf with much better leafy tips for enhanced flavor.</p>
+                    <div class="price-info">
+                        <h4>Premium Quality Available</h4>
+                        <p>Contact us for current pricing and availability</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        FBOPFSP Grade<br>Special Quality
+                    </div>
+                    <h3>Flowery Broken Orange Pekoe Fanning Special (FBOPFSP)</h3>
+                    <p>Special grade similar to FBOPF1 but with firmer and more black leaf featuring much better tips for superior quality and taste.</p>
+                    <div class="price-info">
+                        <h4>Special Grade Quality</h4>
+                        <p>Contact us for current pricing and availability</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        FBOPFEXSP Grade<br>Ultra Premium
+                    </div>
+                    <h3>Flowery Broken Orange Pekoe Fanning Extra Special (FBOPFEXSP)</h3>
+                    <p>Our finest grade featuring whole leaf tea with abundance of long tips, firm leaf consisting of few tips for the ultimate tea experience.</p>
+                    <div class="price-info">
+                        <h4>Ultra Premium Grade</h4>
+                        <p>Contact us for current pricing and availability</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        Dust Grade<br>Perfect for Tea Bags
+                    </div>
+                    <h3>Dust (D)</h3>
+                    <p>The smallest particles left after sifting, often used in tea bags to infuse rapidly and make a strong, robust cup perfect for quick brewing.</p>
+                    <div class="price-info">
+                        <h4>Perfect for Tea Bags</h4>
+                        <p>Contact us for bulk pricing and availability</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <p>076 463 1770</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <p>staminatea11@gmail.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h4>Address</h4>
+                        <p>690/7 Warakanatte,<br>Korathota, Kaduwela</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h4>Special Offers</h4>
+                        <p>Orders above 3000 tea bags: Rs. 1000 per 100 bags<br>14-day credit period available</p>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        Kaduwela, Sri Lanka<br>
+                        Premium Ceylon Tea Location
+                    </div>
+                    <h3>Business Hours</h3>
+                    <p><strong>Monday - Saturday:</strong> 8:00 AM - 6:00 PM<br>
+                    <strong>Sunday:</strong> 9:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Stamina Tea. Premium Ceylon Black Tea from Sri Lanka.</p>
+            <p>Phone: 076 463 1770 | Email: staminatea11@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
